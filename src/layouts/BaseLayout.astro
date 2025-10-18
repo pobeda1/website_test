@@ -1,0 +1,55 @@
+---
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import "@/styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  schema?: Record<string, any>;
+  image?: string;
+}
+const { title, description, schema, image } = Astro.props as Props;
+const businessName = "алёнка";
+const location = "Ставрополь";
+const siteTitle = `${title} | ${businessName} - ${location}`;
+const canonical = Astro.url.href;
+const ogImage = image ?? "/favicon.svg";
+---
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{siteTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={siteTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {schema && (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    )}
+  </head>
+  <body class="font-sans antialiased bg-white text-gray-800">
+    <header role="banner">
+      <slot name="header"><Header /></slot>
+    </header>
+    <main role="main">
+      <slot />
+    </main>
+    <footer role="contentinfo">
+      <slot name="footer"><Footer /></slot>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+---
+const nav = [
+  { href: '/', label: 'Главная' },
+  { href: '/#services', label: 'Услуги' },
+  { href: '/about', label: 'О нас' },
+  { href: '/contact', label: 'Контакты' }
+];
+---
+<nav class="bg-white/80 backdrop-blur sticky top-0 z-50 border-b border-gray-100" aria-label="Главная навигация">
+  <div class="container max-w-7xl flex items-center justify-between h-16">
+    <a href="/" class="flex items-center gap-2" aria-label="алёнка — на главную">
+      <div class="w-8 h-8 rounded-lg bg-primary" aria-hidden="true"></div>
+      <span class="text-xl font-extrabold tracking-tight">алёнка</span>
+      <span class="sr-only">частный детский театр в Ставрополе</span>
+    </a>
+
+    <details class="relative md:hidden">
+      <summary class="list-none p-2 rounded-md border border-gray-200 hover:bg-gray-50 cursor-pointer" aria-label="Открыть меню">
+        <span class="block w-5 h-0.5 bg-gray-800 mb-1"></span>
+        <span class="block w-5 h-0.5 bg-gray-800 mb-1"></span>
+        <span class="block w-5 h-0.5 bg-gray-800"></span>
+      </summary>
+      <ul class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg p-2 border border-gray-100">
+        {nav.map((item) => (
+          <li><a class="block px-3 py-2 rounded hover:bg-gray-50" href={item.href}>{item.label}</a></li>
+        ))}
+        <li>
+          <a href="/contact" class="block px-3 py-2 rounded bg-primary text-white text-center hover:opacity-90">Забронировать</a>
+        </li>
+      </ul>
+    </details>
+
+    <ul class="hidden md:flex items-center gap-6" role="menubar">
+      {nav.map((item) => (
+        <li role="none"><a role="menuitem" class="text-gray-700 hover:text-primary" href={item.href}>{item.label}</a></li>
+      ))}
+    </ul>
+    <div class="hidden md:block">
+      <a href="/contact" class="inline-block bg-primary text-white px-4 py-2 rounded-md font-semibold hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+        Забронировать праздник
+      </a>
+    </div>
+  </div>
+</nav>

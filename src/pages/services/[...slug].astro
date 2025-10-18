@@ -1,0 +1,55 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((entry) => ({
+    params: { slug: [entry.slug] },
+    props: { entry }
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'services'>;
+}
+
+const { entry } = Astro.props as Props;
+const { title, description, features, icon } = entry.data;
+const businessName = 'алёнка';
+const location = 'Ставрополь';
+const pageTitle = `${title}`;
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: title,
+  areaServed: location,
+  provider: {
+    '@type': 'LocalBusiness',
+    name: businessName,
+    url: 'https://alyonka-teatr-stavropol.ru'
+  }
+};
+---
+<BaseLayout title={pageTitle} description={description} schema={serviceSchema}>
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container max-w-4xl">
+      <div class="mb-8">
+        <a href="/" class="text-sm text-gray-600 hover:text-primary">← На главную</a>
+      </div>
+      <h1 class="text-3xl md:text-5xl font-extrabold mb-4 flex items-center gap-3">{icon} {title}</h1>
+      <p class="text-lg text-gray-700 mb-8">{description}</p>
+      {features && features.length > 0 && (
+        <div class="mb-8">
+          <h2 class="text-2xl font-bold mb-3">Что входит</h2>
+          <ul class="list-disc pl-6 space-y-2 text-gray-700">
+            {features.map((f) => <li>{f}</li>)}
+          </ul>
+        </div>
+      )}
+      <a href="/contact" class="inline-block bg-primary text-white px-6 py-3 rounded-md font-semibold hover:opacity-90">Заказать услугу</a>
+    </div>
+  </section>
+</BaseLayout>

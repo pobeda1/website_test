@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import ServiceCard from '@/components/ui/ServiceCard.astro';
+const services = (await getCollection('services')).sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+---
+<section id="services" class="py-16 md:py-24 bg-gray-50">
+  <div class="container max-w-7xl">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-12">Наши услуги</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <ServiceCard title={service.data.title} description={service.data.description} icon={service.data.icon} link={`/services/${service.slug}`} />
+      ))}
+    </div>
+  </div>
+</section>

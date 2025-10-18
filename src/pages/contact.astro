@@ -1,0 +1,13 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Contact from '@/components/sections/Contact.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Контакты — алёнка Ставрополь',
+};
+---
+<BaseLayout title="Контакты" description="Свяжитесь с детским театром «алёнка» в Ставрополе: телефон, email, адрес и форма обратной связи." schema={schema}>
+  <Contact />
+</BaseLayout>

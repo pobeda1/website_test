@@ -1,0 +1,59 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/sections/Hero.astro';
+import Services from '@/components/sections/Services.astro';
+import About from '@/components/sections/About.astro';
+import Contact from '@/components/sections/Contact.astro';
+
+const businessName = 'алёнка';
+const location = 'Ставрополь';
+const siteUrl = 'https://alyonka-teatr-stavropol.ru';
+const phone = '+7 (8652) 55-44-33';
+const email = 'hello@alyonka-teatr-stavropol.ru';
+const address = 'ул. Ленина, 45, Ставрополь, 355000';
+const latitude = 45.0433;
+const longitude = 41.9691;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: businessName,
+  image: '/favicon.svg',
+  telephone: phone,
+  email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'ул. Ленина, 45',
+    addressLocality: 'Ставрополь',
+    addressRegion: 'Ставропольский край',
+    postalCode: '355000',
+    addressCountry: 'RU'
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude,
+    longitude
+  },
+  url: siteUrl,
+  priceRange: '$',
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '19:00'
+    }
+  ],
+  areaServed: {
+    '@type': 'GeoCircle',
+    geoMidpoint: { '@type': 'GeoCoordinates', latitude, longitude },
+    geoRadius: '20 km'
+  }
+};
+---
+<BaseLayout title="Главная" description="Детский театр «алёнка» — спектакли, аниматоры и организация праздников в Ставрополе. Дружелюбные и опытные актёры, яркие программы и бережное отношение к детям." schema={schema}>
+  <Hero />
+  <Services />
+  <About />
+  <Contact />
+</BaseLayout>

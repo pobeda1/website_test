@@ -1,0 +1,24 @@
+---
+const hero_headline = "Детский театр «алёнка» — праздники в Ставрополе";
+const hero_subheadline = "Очень дружелюбные и опытные актёры превращают любое событие в тёплый спектакль с участием детей. Театр для детей, аниматоры и организация праздников под ключ.";
+const hero_cta_text = "Записаться";
+---
+<section class="relative bg-gradient-to-br from-primary to-secondary text-white py-20 md:py-32">
+  <div class="container max-w-5xl">
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+      {hero_headline}
+    </h1>
+    <p class="text-lg md:text-2xl mb-8 text-white/90 max-w-3xl">
+      {hero_subheadline}
+    </p>
+    <div class="flex gap-4">
+      <a href="#contact" class="inline-block bg-white text-primary px-6 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary">
+        {hero_cta_text}
+      </a>
+      <a href="#services" class="inline-block bg-white/10 text-white border border-white/30 px-6 py-3 rounded-lg font-semibold text-lg hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white">
+        Смотреть услуги
+      </a>
+    </div>
+  </div>
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true"></div>
+</section>
