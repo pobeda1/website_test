@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "setup": "node scripts/run-npm-install.mjs",
+    "install:deps": "node scripts/run-npm-install.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0",
