@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  @apply text-gray-800 bg-white;
+}
+
+.container {
+  @apply mx-auto px-4;
+}

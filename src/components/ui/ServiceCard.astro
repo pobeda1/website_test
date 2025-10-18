@@ -1,0 +1,17 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  icon?: string;
+  link?: string;
+}
+const { title, description, icon = '🎭', link = '#' } = Astro.props as Props;
+---
+<article class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition border border-gray-100">
+  <div class="text-4xl mb-4" aria-hidden="true">{icon}</div>
+  <h3 class="text-xl font-bold mb-3">{title}</h3>
+  <p class="text-gray-600 mb-4">{description}</p>
+  <a href={link} class="text-primary font-semibold hover:text-secondary" aria-label={`Подробнее об услуге: ${title}`}>
+    Подробнее →
+  </a>
+</article>

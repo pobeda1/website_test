@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "business_name": "алёнка",
+    "business_type": "частный театр",
+    "location": "Ставрополь",
+    "style": "modern",
+    "tone": "friendly",
+    "astro_version": "5.x"
+  },
+  "files": [
+    {"path": "package.json"},
+    {"path": "astro.config.mjs"},
+    {"path": "tailwind.config.mjs"},
+    {"path": "tsconfig.json"},
+    {"path": "public/favicon.svg"},
+    {"path": "public/robots.txt"},
+    {"path": "src/env.d.ts"},
+    {"path": "src/styles/global.css"},
+    {"path": "src/layouts/BaseLayout.astro"},
+    {"path": "src/components/Header.astro"},
+    {"path": "src/components/Footer.astro"},
+    {"path": "src/components/sections/Hero.astro"},
+    {"path": "src/components/sections/Services.astro"},
+    {"path": "src/components/sections/About.astro"},
+    {"path": "src/components/sections/Contact.astro"},
+    {"path": "src/components/ui/ServiceCard.astro"},
+    {"path": "src/content/config.ts"},
+    {"path": "src/content/services/teatr-dlya-detei.md"},
+    {"path": "src/content/services/organizaciya-prazdnikov.md"},
+    {"path": "src/content/services/animatory.md"},
+    {"path": "src/content/blog/pervyi-spektakl.md"},
+    {"path": "src/pages/index.astro"},
+    {"path": "src/pages/services/[...slug].astro"},
+    {"path": "src/pages/contact.astro"},
+    {"path": "src/pages/about.astro"},
+    {"path": "src/pages/blog/[...slug].astro"},
+    {"path": "src/pages/privacy.astro"},
+    {"path": "README.md"},
+    {"path": ".gitignore"}
+  ],
+  "placeholders": [
+    {
+      "name": "{{business_name}}",
+      "example": "алёнка",
+      "required": true,
+      "locations": ["BaseLayout.astro", "Hero.astro", "Footer.astro", "index.astro"]
+    },
+    {
+      "name": "{{location}}",
+      "example": "Ставрополь",
+      "required": true,
+      "locations": ["BaseLayout.astro", "Hero.astro", "index.astro"]
+    },
+    {
+      "name": "{{phone}}",
+      "example": "+7 (8652) 55-44-33",
+      "required": true,
+      "locations": ["Footer.astro", "Contact.astro", "index.astro"]
+    },
+    {
+      "name": "{{email}}",
+      "example": "hello@alyonka-teatr-stavropol.ru",
+      "required": true,
+      "locations": ["Footer.astro", "Contact.astro"]
+    },
+    {
+      "name": "{{hero_headline}}",
+      "example": "Детский театр «алёнка» — праздники в Ставрополе",
+      "required": true,
+      "locations": ["Hero.astro"]
+    },
+    {
+      "name": "{{hero_cta_text}}",
+      "example": "Записаться",
+      "required": true,
+      "locations": ["Hero.astro"]
+    }
+  ],
+  "deployment": {
+    "install": "npm install",
+    "dev": "npm run dev",
+    "build": "npm run build",
+    "hosts": ["Vercel", "Netlify", "Cloudflare Pages"]
+  },
+  "readme": "See README.md for full instructions"
+}

@@ -1,0 +1,36 @@
+---
+const phone = "+7 (8652) 55-44-33";
+const email = "hello@alyonka-teatr-stavropol.ru";
+const address = "ул. Ленина, 45, Ставрополь, 355000";
+---
+<footer class="bg-gray-50 border-t border-gray-200 mt-16">
+  <div class="container max-w-7xl py-12 grid gap-8 md:grid-cols-4">
+    <div class="md:col-span-2">
+      <h3 class="text-xl font-bold mb-3">алёнка</h3>
+      <p class="text-gray-600">Детский театр и организация праздников. Дружелюбные и опытные актёры создают незабываемые впечатления для детей в Ставрополе.</p>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-3">Контакты</h4>
+      <ul class="space-y-1 text-gray-700">
+        <li><a class="hover:text-primary" href="tel:+78652554433">{phone}</a></li>
+        <li><a class="hover:text-primary" href="mailto:{email}">{email}</a></li>
+        <li><a class="hover:text-primary" href="https://yandex.ru/maps/?text=ул.%20Ленина%2C%2045%2C%20Ставрополь" target="_blank" rel="noopener">{address}</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-3">Мы в соцсетях</h4>
+      <ul class="space-y-1 text-gray-700">
+        <li><a class="hover:text-primary" href="#" aria-label="VK">VK</a></li>
+        <li><a class="hover:text-primary" href="#" aria-label="Instagram">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-gray-200">
+    <div class="container max-w-7xl py-4 text-sm text-gray-600 flex items-center justify-between">
+      <p>© {new Date().getFullYear()} алёнка. Все права защищены.</p>
+      <nav aria-label="Нижняя навигация">
+        <a href="/privacy" class="hover:text-primary">Политика конфиденциальности</a>
+      </nav>
+    </div>
+  </div>
+</footer>

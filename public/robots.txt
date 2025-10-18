@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alyonka-teatr-stavropol.ru/sitemap.xml
