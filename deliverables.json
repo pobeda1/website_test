@@ -77,7 +77,7 @@
     }
   ],
   "deployment": {
-    "install": "npm install",
+    "install": "npm run setup",
     "dev": "npm run dev",
     "build": "npm run build",
     "hosts": ["Vercel", "Netlify", "Cloudflare Pages"]
